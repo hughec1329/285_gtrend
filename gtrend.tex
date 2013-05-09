@@ -1,0 +1,164 @@
+\documentclass[11pt]{article}
+\usepackage{listings,fancyhdr,hyperref,graphicx,subfig,appendix}
+\pagestyle{fancy}
+\fancyhead{}
+\fancyfoot{}
+\fancyfoot[R]{Page \thepage}
+\fancyfoot[L]{Prepared for Idea Telecom \| HCT Consulting}
+\renewcommand{\footrulewidth}{0.4 pt}
+\renewcommand{\headrulewidth}{0 pt}
+\hypersetup{colorlinks = true, linkcolor = blue, citecolor = blue}
+\begin{document}
+
+\begin{flushleft}
+	\vspace*{0.3in}
+	\Huge \textbf{Projected growth of the Indian Telecommunications Industry} \\
+	\vspace{0.25in}
+	\Large Prepared by for Idea Telecom\\
+	\vspace{0.25in}
+	\Large By HCT Consulting, \today \\
+	\vspace{0.25in}
+	\textsc{Hugh Crockford\\Cathrine Misquitta\\Tracy Regis}
+\end{flushleft}
+	\vspace{0.75in}
+	\renewcommand{\abstractname}{Executive Summary}
+	\begin{abstract}
+		Opportunity exists for India's third tier cellphone carrier to purchase additional mobile spectrum, essential if it is to continue it's recent growth.
+		Using historical data from the US market, we model the uptake of cellphones in India to justify our recommendation of purchasing additional cellphone spectrum to cope with projected future demand.
+	\end{abstract}
+
+\newpage
+	
+	\tableofcontents
+
+\newpage
+\section{Introduction}
+	Cell phones were developed in 1973 by John Francis Mitchell and first marketed commercially in 1983 by Motorola \cite{Brophy2012}.
+	Despite initial high price, consumers swiftly appreciated the value in this new technology and uptake grew quickly, following the 'Bass model' of technology diffusion \cite{Bass1969}.
+	Driven by a rapidly rising user base, call volumes expanded quickly and subsequent generations of wireless spectrum were developed that increased network speed and bandwidth.
+	Governments worldwide have regulated the sale of wireless spectrum to telecommunication companies, auctioning the rights to operate their networks at set frequency bands.
+	Having adequate coverage and speed available is very important for customer satisfaction and subsequently customer spend \cite{J.D.Powera}. 
+	In order to attract and retain customers telecommunication companies must offer fast service over a wide coverage area, and consequently the purchase of spectrum licences is an important business decision.
+	The quality of service is even more important in fully saturated markets, where fierce competition between carriers occurs and customers frequently change carriers \cite{ditching13}.
+
+
+	Idea Cellular is the third ranked mobile telecommunications company in India \cite{TELECOMREGULATORYAUTHORITYOFINDIA2012}.
+	The Asia Pacific region where it operates is a rapidly expanding market, with developing nations in this area expected to overtake Europe in size of telecommunication market by 2017 \cite{AnalysysMasos}.
+	Idea Cellular is capitalising on this growth and expanding faster than it's larger rivals, adding 2.45 million new customers in January of 2013 \cite{KRISHNAa}.
+	A recent social media marketing campaign has driven this growth\cite{MNP}, however service quality has suffered as increased volume has stressed the already thin spectrum that Idea owns. 
+
+
+	The Indian telecommunication industry has recently been rocked by a series of corruption and bribery allegations.
+	The supreme court ruled in early 2012 the first-come first-served policy adopted in 2008 to allocate bandwidth was illegal \cite{KRISHNA}.
+	As a result of this decision, the Indian Department of Telecommunications has recently begun auctioning spectrum licences that were allocated under this scheme.
+	These seized licences are been auctioned in a series of competitive bidding rounds, with all major telecommunication companies in India expected to participate.
+
+
+	This report is prepared for Idea Cellular, to assist decision making regarding the purchase of additional 2G and 3G spectrum in all regions of India.
+	Using historical mobile phone penetration data from the USA we predict the pattern of mobile penetration in India will proceed rapidly, reaching XX \% by XXXX.
+	This prediction will assist decision makers in their bidding strategy and in assessing the attractiveness of this investment opportunity.
+
+
+
+\newpage
+	\section{Data Characteristics}
+		We use the historical market penetration rates in the USA to develop a forecast model for mobile penetration in India.
+		The USA cellphone penetration data comes from a Xerox research paper and spans 1987 - 2004.\cite{Lilien1999}
+		The market penetration follows the typical Bass model of Technology diffusion, exhibiting slow initial growth through the late 80's and early 90's, followed by a period of rapid expansion in 90's to achieve almost total penetration (97.6\%) by 2004.
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[scale=0.6]{usage.pdf}
+			\caption{Cellphone Penetration in the USA, 1987 - 2004}		% need this plot if have one below?
+			\label{fig:pen}
+		\end{figure}
+
+		We assume this data measures average annual percent of total population that is actively using one or more cellphones.
+
+\newpage
+
+
+		In order to predict cellphone penetration in India, we use the same series of cellphone penetration in India from 2000 - 2011 \cite{InternationalTelecomm}.
+		This data shows a similar trend, and as of 2010 appears to be approaching the second inflection point between rapid growth and maturity.
+		We will use the model that best fits the USA data to predict the future of India's cellphone penetration, in order to justify Idea Telecom's  purchase of wireless spectrum.
+		This comparison is valid as the penetration trend from 2000 - 2011 in India closely resembles that of the USA from 1987 - 1997, as shown in the following graph.
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[scale=0.6]{comp.pdf}
+			\caption{Comparison of cellphone penetration in the USA (Blue) to India (Red)}
+			\label{fig:comp}
+		\end{figure}
+
+
+\newpage
+	\section{Model Selection}
+	Multiple models were examined and their errors calculated to find the most accurate model for the USA cellphone penetration data. (please see Appendix \ref{app:mod} for a description of models explored, and Appendix \ref{err} for model errors and model selection process.)
+
+
+		The model that best fit the USA data was a Logistic/S-Curve model, described as follows:
+		\begin{equation}
+			Y_t = \frac{10^3}{10.4495 + 1374.57 * 0.580669^t}
+				\label{scurve}
+		\end{equation}
+
+		The Logistic model fits the data well, as shown in the following graph:
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[scale=0.4]{scurve.jpg}
+			\caption{Best fitting model for the USA cellphone data. MAPE = 8.99\%}
+			\label{fig:fitmod}
+		\end{figure}
+
+
+		This pattern of cellphone uptake is expected. 
+		The logistic function has been used extensively to model diffusion of innovations and introduction of new technologies, fitting the growth curves of railroads, incandescent light bulbs, and the Ford Model T.
+		This function has also been applied to the business cycle that occurs alongside a new product development, with initial early adopters giving way to rapid market growth and eventually market maturity as penetration approaches 100\% \cite{perez2002technological}.
+		The S-Curve has also been found to be useful in predicting long economic cycles covering 45-60 years, commonly known as Kondretiev waves \cite{Marchetti1996}.
+\newpage
+
+	\subsection{Forecasting}
+		Using the model developed above from the USA data, we predict cellphone penetration in India over the next XX years.
+		The S-Curve fits the first 11 years of the India data well, with a MAPE of XXXX\%.
+		Projecting the model into the future we predict a penetration of  XXX by XXX, at which point the market is effectively saturated.
+		It is at this point Idea will need to differentiate itself from other carriers, in order to attract and retain disloyal customer.
+
+		\begin{figure}[h!]
+			\centering
+			\includegraphic{pred.pdf}
+			\caption{Predicted Cellphone penetration for the Indian telecommunication market, 2000 - 2020}
+			\label{fig:pred}
+		\end{figure}
+
+		It is important to note that we are using historical data from a very different time period and market, and this prediction relies on an assumption of similarity between the USA and Indian Telecom markets. 
+		Stability and corruption of government and suboptimal infrastructure are two reasons cellphone penetration may not proceed as projected.
+		Another potential issue with our prediction is the possibility of consumers 'leapfrogging' to a new technology.
+		This phenomenon occurs when a developing nation adopts technology from developed countries and instead of proceeding through the older technological iterations, they jump directly to the modern form.
+		The oft-cited example of this is developing nations 'leapfrogging' over fixed line telecommunications directly to mobile.
+
+		In this case however the minute accuracy of prediction is not as important as the long term trend, which is quite clearly pointing toward 100\% penetration within the next decade.
+
+		\newpage
+	\section{Conclusion and Recommendations}
+		We conclude the Indian telecommunications market will continue to grow and follow the US lead, reaching 975 penetration by XXXX.
+		After market saturation is reached, the Indian telecommunication industry will likely proceed as the USA market has, with intense competition between telecommunication companies as they try to hold onto increasingly disloyal customers.
+		The companies that will survive will need to deliver fast reliable service over large coverage areas, and this can only occur with the ongoing purchase of additional spectrum.
+
+
+		This leads us to recommend to Idea Telecom an aggressive bid in the forthcoming spectrum auction, in order to be prepared for the impending saturation of the Indian telecommunications market.
+		Providing fast service over a large area is essential if Idea is to continue to grow, and expanding their network by purchasing additional spectrum will encourage existing users to stay with Idea and attract new customers. 
+
+\newpage
+
+
+\appendix
+\appendixpage
+\addappheadtotoc
+\section{Model Selection} \label{app:mod}
+\subsection{Model Errors} \label{err}
+
+\newpage
+\section{Bibliography}
+\bibliographystyle{unsrt}
+\bibliography{refs}
+
+\end{document}
+
