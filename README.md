@@ -14,3 +14,8 @@
 
 ## explain R, sources for learning.
 - benefits - API.
+
+## websites
+- wiki page views easy scraper.
+- http://blog.scraperwiki.com/2013/05/10/free-community-accounts/
+- 
