@@ -1,5 +1,6 @@
 \documentclass[11pt]{article}
 \usepackage{listings,fancyhdr,hyperref,graphicx,subfig,appendix}
+\usepackage{fullpage}
 \pagestyle{fancy}
 \fancyhead{}
 \fancyfoot{}
@@ -29,36 +30,35 @@
 \newpage
 \section{Introduction}
 	There is a large amount of data available from a variety of credible and not so credible sources online.
-	Historical time series of macroeconomic indicators and indexes can be useful variables to consider including in any long duration time series model, and Social media sentiment analysis attempts to harness the power of the 'social web' to inform decicion making.
+	Historical time series of macroeconomic indicators and indexes can be useful variables to consider including in any long duration time series model, and the rise of the 'social web' has produced reams of data to aid and inform decision making.
 
 
 	This vignette describes a variety of data sources that may be useful during any modelling project.
 
 \section{Sources of Historical Time Series data}
 	Variables such as population, income, and CPI are economy wide metrics that can explain some of the variability present in a dataset.
-	Historical prcing information for commodoties and financial instruments are also potentially important when developing costing/pricing or demand models.
-	Many exchange sites will offer these data for a hefty subsctiption fee, however most can be found online for free
+	Historical pricing information for commodities and financial instruments are also potentially important when developing costing/pricing or demand models.
+	Many exchange sites will offer these data for a hefty subscription fee, however most can be found online for free
 
 	\subsection{Financial Time Series - Index and pricing data}
-	Some data can be found with a simple google search, however many sites are of questionable quality or will request payment for full access.
+	Some data can be found with a simple Google search, however many sites are of questionable quality or will request payment for full access.
 
 
-	The best bang-for-buck I've found is Ycharts \footnote{http://ycharts.com/} at \$49 month. 
-	This site allows custom charts and data download, and also includes an Excel add-in with purchase of professional membership.
-	While I haven't stumped up for subscription it appears to cover a wide array of stock, future, and index's across long time periods.
+	Ycharts \footnote{http://ycharts.com/} appears to be the best bang-for-buck at \$49 month. 
+	This site has many data series, allows custom charts and data download, and also includes an Excel add-in with purchase of professional membership.
 	Approximate data can also be extracted from freely available graphs as described in \hyperref[graph]{Appendix C}
 
 
-	A Bloomberg terminal subscription provides access to a plethora of Industry grade datasets, including realtime market data and historical quotes.
-	A subscriptionn to Bloomberg is a minimum \$2000 pcm however many financial business' have access so it is worth asking your employer.
-	The UC Library system unfortunately does not have access to bloomberg data.
+	A Bloomberg terminal subscription provides access to a plethora of Industry grade datasets, including real-time market data and historical quotes.
+	A subscription to Bloomberg is a minimum \$2000 pcm however many financial business' have a subscription that can be used to download series as needed.
+	The UC Library system unfortunately does not have access to Bloomberg data.
 	Bloomberg also offers an \hyperref[api]{API} \footnote{http://www.openbloomberg.com/open-api/} that allows data to be dynamically loaded into excel.
 
-	Quandl \footnote{http://www.quandl.com/} is a data search engine that aggregates over 5 milllion datasets from around the web.
-	The datasets cover financial, economic, and social areas, and are easily searched from their homepage.
-	All the data is available for free with primary souce referenced, and can be accessed from within R using the package 'Quandl', and via an Excel plugin. 
-	Quandl is the most useful online data source I've come across, with large amounts of quality data readily accessible.
+	Quandl \footnote{http://www.quandl.com/} appears to be the most useful online data source, with large amounts of quality data freely accessible.
+	It aggregates over 5 million financial, economic, and social datasets from around the web with primary reference information.
+	All datasets are manually accessible and downloadable from the search engine on their homepage, and can be accessed from within R using the package 'Quandl', and via an Excel plugin. 
 
+	% \newpage
 	
 	\subsection{Demographic information}
 
@@ -67,7 +67,7 @@
 	The most powerful way to access the census data is through their \hyperref[api]{API}, with which quereies can be built and run over multiple areas and variables.
 
 
-\section{Social media sentiment analysis}
+	\section{Social Media Data}
 	The explosion in social media has sparked interest in dynamically monitoring the massive amounts of user generated data to generate insights into product choices, pending pandemics, and even stock prices.
 
 	\subsection{Google Trends/Search volumes}
@@ -81,14 +81,16 @@
 		
 
 	Related to google trends is Wikipedia page views, which has shown to be indicitive of future stock price moves \cite{Moat2013}.
-	Wikipedia page statistics can be accessed manually \footnote{http://stats.grok.se/}, or programatically by a RESTful \hyperref[api]{API}, developed in a paper from Microsoft Research \cite{Peetz}. 
+	Wikipedia page statistics can be accessed manually \footnote{http://stats.grok.se/}, or programatically via a RESTful \hyperref[api]{API}, developed in a paper from Microsoft Research \cite{Peetz}. 
 
 	\subsection{Twitter/Facebook}
-	The rise of Social Media has made large volumed of information on what people had for breakfast publically available. 
-	Many people are actively watching social media and trading on this data. 
-	Twitter sentiment analysis has shown various metrics based on twitter mood are predictive of DJIA closing values \cite{Bollen2011}.
+	Besides photos of what people had for breakfast, twitter data can be analysed to reveal people's brand awareness and perceptions, and can reveal future market events \cite{Ruiz2012}.
+	Many people are actively watching social media and trading on this data, with twitter sentiment analysis shown to beat various metrics in predicting of DJIA closing values \cite{Bollen2011}.
 	The importance traders place on information from social media was demonstrated in May 2013 when the Asociated press' twitter account was hacked and a false tweet reproting the White House had been bombed was released. 
 	The false tweet erased \$200 billion from the US stock market, withe the Dow falling almost 150  points in 2 minutes, and oil and tbond futures following \cite{wsj13}. 
+
+	Historical tweets (last 7 days) can be accessed from twitter's \hyperref[api]{API} \footnote{https://dev.twitter.com/docs/api} and interpreted using Natural Language Processing tools.
+	There are also various services that present trending tweets geographically \footnote{https://dev.twitter.com/docs/api}  and by hashtag \footnote{http://www.hashtags.org/}
 
 
 \newpage
