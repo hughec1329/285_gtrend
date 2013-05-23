@@ -1,6 +1,7 @@
 \documentclass[11pt]{article}
 \usepackage{listings,fancyhdr,hyperref,graphicx,subfig,appendix}
 \usepackage{fullpage}
+%\usepackage[para]{footmisc}
 \pagestyle{fancy}
 \fancyhead{}
 \fancyfoot{}
@@ -45,7 +46,7 @@
 
 
 	Ycharts \footnote{http://ycharts.com/} appears to be the best bang-for-buck at \$49 month. 
-	This site has many data series, allows custom charts and data download, and also includes an Excel add-in with purchase of professional membership.
+	This site has many data series for plotting and download, and also includes an Excel add-in with purchase of professional membership.
 	Approximate data can also be extracted from freely available graphs as described in \hyperref[graph]{Appendix C}
 
 
@@ -56,40 +57,40 @@
 
 	Quandl \footnote{http://www.quandl.com/} appears to be the most useful online data source, with large amounts of quality data freely accessible.
 	It aggregates over 5 million financial, economic, and social datasets from around the web with primary reference information.
-	All datasets are manually accessible and downloadable from the search engine on their homepage, and can be accessed from within R using the package 'Quandl', and via an Excel plugin. 
+	All datasets are manually accessible and downloadable from the search engine on their homepage, and can be accessed from within R using the package 'Quandl', and dynamically added to a spreadsheet via an Excel plugin. 
 
 	% \newpage
 	
 	\subsection{Demographic information}
 
-	Population and demographic information can be found around the web, however the most trusted source is American Census Bureau \footnote{http://www.census.gov/}.
+	Population and demographic information can be found around the web, however the most trusted source is American Census Bureau. 
 	Their website is a little difficult to navigate, and the 'American fact-finder'\footnote{http://factfinder2.census.gov/faces/nav/jsf/pages/index.xhtml} is the search engine to locate area specific data.
-	The most powerful way to access the census data is through their \hyperref[api]{API}, with which quereies can be built and run over multiple areas and variables.
+	The most powerful way to access the census data is through their \hyperref[api]{API}, with which quereies can be built and run over multiple geographic areas and variables.
 
 
 	\section{Social Media Data}
-	The explosion in social media has sparked interest in dynamically monitoring the massive amounts of user generated data to generate insights into product choices, pending pandemics, and even stock prices.
+	The explosion in social media has allowed the monitoring of massive amounts of user generated data to generate insights into product choices, pending pandemics, and even stock prices.
 
 	\subsection{Google Trends/Search volumes}
-	Most consumers employ a search engine for everything from what car to buy to finding out if they have the flu or tuberculosis.
-	Tracking search volume across time can provide insights into what the 'crowd' is researching, from which inferences can be made.
-	The first application of this was when Google succesfully predicted a Flu epidemic based on seach volumes before the mighty CDC\cite{Ginsberg2009} .
-	Google trends \footnote{http://www.google.com/trends/explore\#cmpt=q} is a demonstration of this capability. 
-	Keywords can be compared (e.g. Toyota to Ford) and relative search volumes found, and news items associated with peaks. 
-	The data can be downloaded into a csv (comma seperated value) that is easily loaded into excel, and queries can be based on location, timeframe and category.
-	The google trends API can also be accessed by R packages 'rGtrend' and 'RGoogleTrends'
+	Most consumers employ a search engine for everything from what car to buy to finding out if they have a cold or tuberculosis.
+	Tracking search volume across time can provide insights into what the 'crowd' is researching, from which various inferences can be made.
+	The first application of this technology was when Google developed algorithms to predict Flu epidemics based on search volumes, diagnosing epidemics much sooner than the mighty CDC \cite{Ginsberg2009}.
+	Google Trends \footnote{http://www.google.com/trends/explore\#cmpt=q} is a demonstration of this capability available for everyone to use. 
+	Keywords can be compared (e.g. a product and it's competitor) and relative search volumes found, with news items associated with peaks in search volumes. 
+	The data can be downloaded into a csv file (comma separated value) that is easily loaded into excel, and queries can be based on location, time frame and category.
+	The Google Trends API can also be accessed by R packages 'rGtrend' and 'RGoogleTrends'
 		
 
-	Related to google trends is Wikipedia page views, which has shown to be indicitive of future stock price moves \cite{Moat2013}.
-	Wikipedia page statistics can be accessed manually \footnote{http://stats.grok.se/}, or programatically via a RESTful \hyperref[api]{API}, developed in a paper from Microsoft Research \cite{Peetz}. 
+	Related to Google trends is Wikipedia page views, which has shown to be indicative of future stock price moves \cite{Moat2013}.
+	Wikipedia page statistics can be accessed manually \footnote{http://stats.grok.se/}, or programatically via a RESTful \hyperref[api]{API} \cite{Peetz}. 
 
-	\subsection{Twitter/Facebook}
-	Besides photos of what people had for breakfast, twitter data can be analysed to reveal people's brand awareness and perceptions, and can reveal future market events \cite{Ruiz2012}.
-	Many people are actively watching social media and trading on this data, with twitter sentiment analysis shown to beat various metrics in predicting of DJIA closing values \cite{Bollen2011}.
-	The importance traders place on information from social media was demonstrated in May 2013 when the Asociated press' twitter account was hacked and a false tweet reproting the White House had been bombed was released. 
-	The false tweet erased \$200 billion from the US stock market, withe the Dow falling almost 150  points in 2 minutes, and oil and tbond futures following \cite{wsj13}. 
+	\subsection{Twitter}
+	Microblogging platforms such as Twitter generate over 400 million data points each day, data that can be analysed to reveal people's brand awareness and perceptions, and can reveal future market events \cite{Ruiz2012}.
+	Many people are actively watching social media and trading on this data, with twitter sentiment analysis shown to beat various metrics in predicting DJIA closing values \cite{Bollen2011}.
+	The importance traders and their algorithmic trading programs place on information from social media was demonstrated in May 2013 when the Associated press' twitter account was hacked and a false tweet reporting the White House had been bombed was released. 
+	The false tweet erased \$200 billion from the US Stock Market in 2 minutes, with the Dow falling almost 150 points and oil and tbond futures following \cite{wsj13}. 
 
-	Historical tweets (last 7 days) can be accessed from twitter's \hyperref[api]{API} \footnote{https://dev.twitter.com/docs/api} and interpreted using Natural Language Processing tools.
+	Historical tweets (last ~7 days) can be accessed from Twitter's \hyperref[api]{API} \footnote{https://dev.twitter.com/docs/api} and interpreted using Natural Language Processing tools.
 	There are also various services that present trending tweets geographically \footnote{https://dev.twitter.com/docs/api}  and by hashtag \footnote{http://www.hashtags.org/}
 
 
@@ -101,35 +102,36 @@
 	
 \section{R Resources} \label{app:mod}
 	R is an open source statistical programming language widely used in academia and business.
-	It has been suggested to replace shitty old excel, which has been impolicated in some high profile errors (london whale, mf global, lehman) attributed to the use of excel\cite{excel13}.
-	While the initial learngin curve cna be steep, the scripting and scaling capabilites mean an itial time investment to learn will pay dividends int he future.
+	While the initial learning curve can be steep, the scripting and scaling capabilities mean an initial time investment will pay dividends if any serious modelling is being completed.
+	These scripting capabilities also force analysts to explicitly state assumptions, constants and equations, allowing easier oversight and validation when compared to an excel spreadsheet model.
+	Errors in complicated spreadsheets have been implicated in some high profile cases recently (London whale, MF global, Lehman \cite{excel13}) with incorrect cell references or equation errors proving disastrous for all involved. 
 	In addition, many of the techniques discussed in this vignette are implemented directly in R, allowing seamless integration of data collection and modelling.
 
 
-	There are many books available to assist learning R, and a wealth of online information. 
-	For those not used to the command line interface, R Studio (http://www.rstudio.com/) is a free GUI (graphical user interface) which has many tools to assist learning R.
+	There are many books available to assist learning R, and a wealth of online information.
+	Coursera \footnote{https://www.coursera.org/} offers a free online course in 'Computing for Data Analysis', and other statistics courses also use R.
+	For those not used to the command line interface, R Studio \footnote{http://www.rstudio.com/} is a free GUI (graphical user interface) which has many tools to assist learning R.
 
-	There are nbumerous classes on main campus to learn R, however most of the learning happens by doing.
-	More advanced classes that recuire a solid foundation in R include STA 141 and STA 242
+	There are numerous classes on main campus available to learn R, ranging from a basic introduction given in most applied stat classes to more advanced classes that require a solid grasp of the program.
+
+	\section{Web Application Programming Interface's (API)}\label{api}
+	Many data rich websites recognise navigating menu's and downloading individual files is laborious so have developed web API's to allow scripted access to data.
+	For any project requiring many queries of a database, it is worth scripting the requests (commonly HTTP GET/POST) to allow many iteration's to be run across a range of variables.
 
 
-	\section{Appplication Programming Interface (API)}\label{api}
-	Many data rich websites recognise navigating menu's and downloading individual files is laborious so have developed API's (Application programming interface) to allow scripted access to data.
-	For any project recquireing many queries of a database, it is worth scripting the requests in an HTTP GET or POST to allow many interations to be run to download recwuired data.
+	The predominant web API is REST (Representational state transfer), which process HTTP requests and commonly returns data as xml or JSON.
+	Each REST server will have its own methods and documentation will be provided to allow scripted query development.
+
 
 	Some api's (e.g. quandl,twitter) will require a registration key so that usage can be tracked.
 
-
-	The predominant web API is REST (Representational state transfer), which processes requests in the form of HTTP GET or POST querey's.
-	Each REST server will have its own methods and documentation will be provided to allow scripted querey development.
-	Examples of API's include Twitter recent tweets, US Census, NOAA, and many more.
-
-
-	\section{Extracting data from a graph}\label{graph}
-	Often a graph can be found with recquired time series, however the data used to geneerate the figure are unavailable.
+	\section{Extracting data from a Plot}\label{graph}
+	Often a plot can be found with required time series, however the data used to generate the figure are unavailable.
 	An approximation of underlying data can be generated by reading the position of lines/points versus calibrated known points. 
-	Numerous tools exist to complete this task, the most uder friendly I have come across being WebPlotDigitizer, an online tool (http://arohatgi.info/WebPlotDigitizer/). 
-	This can also be completed within R using the 'digitize' package.
+	Numerous tools exist to complete this task, the easiest to use being WebPlotDigitizer, an online tool \footnote{http://arohatgi.info/WebPlotDigitizer/}. 
+	A graph is loaded, calibration points selected and their corresponding values entered, then color thresholds set for lines/points.
+	The software then automatically selects points along the line, and the resulting data can be downloaded as a csv.
+	This task can also be completed within R using the 'digitize' package.
 
 \newpage
 \section{Bibliography}
