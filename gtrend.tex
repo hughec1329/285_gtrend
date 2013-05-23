@@ -30,11 +30,11 @@
 
 \newpage
 \section{Introduction}
-	There is a large amount of data available from a variety of credible and not so credible sources online.
-	Historical time series of macroeconomic indicators and indexes can be useful variables to consider including in any long duration time series model, and the rise of the 'social web' has produced reams of data to aid and inform decision making.
+	There is a large amount of data available online from a variety of credible and not so credible sources.
+	Historical time series of macroeconomic indicators and indexes can be useful variables to consider including in any long duration time series model, and the rise of the 'social web' has produced reams personalised of data to aid and inform decision making.
 
 
-	This vignette describes a variety of data sources that may be useful during any modelling project.
+	This vignette describes a variety of data sources that may be useful for any modelling project.
 
 \section{Sources of Historical Time Series data}
 	Variables such as population, income, and CPI are economy wide metrics that can explain some of the variability present in a dataset.
@@ -53,18 +53,18 @@
 	A Bloomberg terminal subscription provides access to a plethora of Industry grade datasets, including real-time market data and historical quotes.
 	A subscription to Bloomberg is a minimum \$2000 pcm however many financial business' have a subscription that can be used to download series as needed.
 	The UC Library system unfortunately does not have access to Bloomberg data.
-	Bloomberg also offers an \hyperref[api]{API} \footnote{http://www.openbloomberg.com/open-api/} that allows data to be dynamically loaded into excel.
+	Bloomberg also offers an \hyperref[api]{API} \footnote{http://www.openbloomberg.com/open-api/} and an Excel plugin that allows data to be dynamically loaded into a spreadsheet.
 
 	Quandl \footnote{http://www.quandl.com/} appears to be the most useful online data source, with large amounts of quality data freely accessible.
 	It aggregates over 5 million financial, economic, and social datasets from around the web with primary reference information.
-	All datasets are manually accessible and downloadable from the search engine on their homepage, and can be accessed from within R using the package 'Quandl', and dynamically added to a spreadsheet via an Excel plugin. 
+	All datasets are manually accessible and downloadable from the search engine on their homepage, and can also be accessed from within \hyperref[R]{R} using the package 'Quandl', and dynamically added to a spreadsheet via an Excel plugin. 
 
 	% \newpage
 	
 	\subsection{Demographic information}
 
 	Population and demographic information can be found around the web, however the most trusted source is American Census Bureau. 
-	Their website is a little difficult to navigate, and the 'American fact-finder'\footnote{http://factfinder2.census.gov/faces/nav/jsf/pages/index.xhtml} is the search engine to locate area specific data.
+	Their website is a little difficult to navigate, even using their search engine, the 'American fact-finder'\footnote{http://factfinder2.census.gov/faces/nav/jsf/pages/index.xhtml}.
 	The most powerful way to access the census data is through their \hyperref[api]{API}, with which quereies can be built and run over multiple geographic areas and variables.
 
 
@@ -77,8 +77,8 @@
 	The first application of this technology was when Google developed algorithms to predict Flu epidemics based on search volumes, diagnosing epidemics much sooner than the mighty CDC \cite{Ginsberg2009}.
 	Google Trends \footnote{http://www.google.com/trends/explore\#cmpt=q} is a demonstration of this capability available for everyone to use. 
 	Keywords can be compared (e.g. a product and it's competitor) and relative search volumes found, with news items associated with peaks in search volumes. 
-	The data can be downloaded into a csv file (comma separated value) that is easily loaded into excel, and queries can be based on location, time frame and category.
-	The Google Trends API can also be accessed by R packages 'rGtrend' and 'RGoogleTrends'
+	The data can be downloaded into a CSV file (comma separated value) that is easily loaded into Excel, and queries can be based on location, time frame and category.
+	Google Trends can also be accessed via \hyperref[R]{R} packages 'rGtrend' and 'RGoogleTrends'
 		
 
 	Related to Google trends is Wikipedia page views, which has shown to be indicative of future stock price moves \cite{Moat2013}.
@@ -100,7 +100,7 @@
 \appendixpage
 \addappheadtotoc
 	
-\section{R Resources} \label{app:mod}
+\section{R Resources} \label{R}
 	R is an open source statistical programming language widely used in academia and business.
 	While the initial learning curve can be steep, the scripting and scaling capabilities mean an initial time investment will pay dividends if any serious modelling is being completed.
 	These scripting capabilities also force analysts to explicitly state assumptions, constants and equations, allowing easier oversight and validation when compared to an excel spreadsheet model.
@@ -114,7 +114,7 @@
 
 	There are numerous classes on main campus available to learn R, ranging from a basic introduction given in most applied stat classes to more advanced classes that require a solid grasp of the program.
 
-	\section{Web Application Programming Interface's (API)}\label{api}
+	\section{Web Application Programming Interfaces (API)}\label{api}
 	Many data rich websites recognise navigating menu's and downloading individual files is laborious so have developed web API's to allow scripted access to data.
 	For any project requiring many queries of a database, it is worth scripting the requests (commonly HTTP GET/POST) to allow many iteration's to be run across a range of variables.
 
@@ -123,7 +123,7 @@
 	Each REST server will have its own methods and documentation will be provided to allow scripted query development.
 
 
-	Some api's (e.g. quandl,twitter) will require a registration key so that usage can be tracked.
+	Some API's (e.g. quandl,twitter) will require a registration key so that usage can be tracked.
 
 	\section{Extracting data from a Plot}\label{graph}
 	Often a plot can be found with required time series, however the data used to generate the figure are unavailable.
@@ -131,7 +131,7 @@
 	Numerous tools exist to complete this task, the easiest to use being WebPlotDigitizer, an online tool \footnote{http://arohatgi.info/WebPlotDigitizer/}. 
 	A graph is loaded, calibration points selected and their corresponding values entered, then color thresholds set for lines/points.
 	The software then automatically selects points along the line, and the resulting data can be downloaded as a csv.
-	This task can also be completed within R using the 'digitize' package.
+	This task can also be completed within \hyperref[R]{R} using the 'digitize' package.
 
 \newpage
 \section{Bibliography}
